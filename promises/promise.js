@@ -10,10 +10,15 @@ function returnsPromise() {
   });
 }
 
+function handleResolve(value) {
+  console.log("RESOLVED: ", value);
+}
+function handleRejection(rej) {
+  console.log("REJECTED: ", rej);
+}
+
 returnsPromise()
-  .then((value) => {
-    console.log(value);
-  })
+  .then(handleResolve, handleRejection)
   .catch((err) => {
     console.log(err);
   });
